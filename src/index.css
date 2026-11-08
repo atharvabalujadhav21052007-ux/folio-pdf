@@ -1,0 +1,87 @@
+/* hallmark: theme: atelier-slate (crafted editorial tool); floor: pass; reflex: clean */
+/* critique: tactile document tool with physical paper surfaces, monochrome control rail, and precise typography */
+
+@import "tailwindcss";
+
+:root {
+  --bg-app: #0e0f11;
+  --bg-workspace: #16181c;
+  --bg-surface: #1e2127;
+  --bg-surface-hover: #262a32;
+  --bg-surface-active: #2f343e;
+  
+  --border-subtle: #2b303b;
+  --border-strong: #3e4554;
+  
+  --text-main: #f3f4f6;
+  --text-muted: #9ca3af;
+  --text-faint: #6b7280;
+  
+  --accent-gold: #e5a93c;
+  --accent-gold-hover: #f5b94c;
+  --accent-blue: #3b82f6;
+  --accent-red: #ef4444;
+  --accent-green: #10b981;
+  
+  --paper-bg: #ffffff;
+  --paper-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.08);
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-app);
+  color: var(--text-main);
+  font-family: var(--font-sans);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hallmark rule: Never transition all */
+button, input, select, textarea, a {
+  transition: background-color 150ms ease, border-color 150ms ease, opacity 150ms ease;
+}
+
+/* Hallmark rule: Every interactive element has :focus-visible */
+:focus-visible {
+  outline: 2px solid var(--accent-gold);
+  outline-offset: 2px;
+}
+
+/* Hallmark rule: prefers-reduced-motion fallback */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-subtle);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-strong);
+}
